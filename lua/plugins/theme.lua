@@ -1,29 +1,57 @@
 return {
-  -- 添加 base16-nvim 主题
+  -- 添加 Catppuccin 主题
   {
-    "RRethy/base16-nvim",
+    "catppuccin/nvim",
+    name = "catppuccin",
     lazy = false,
     priority = 1000,
     config = function()
-      -- 可选：设置特定的 base16 主题
-      -- vim.cmd("colorscheme base16-gruvbox-dark-hard")
-      -- vim.cmd("colorscheme base16-onedark")
-      vim.cmd("colorscheme base16-gruvbox-dark-hard")
-      -- 可选配置
-      require("base16-colorscheme").with_config({
-        telescope = true,
-        indentblankline = true,
-        notify = true,
-        tsrainbow = true,
+      require("catppuccin").setup({
+        flavour = "mocha", -- 可选: mocha, latte, frappe, macchiato
+        no_italic = true, -- 禁用斜体
+        no_bold = false, -- 保留粗体
+        transparent_background = true,
+        show_end_of_buffer = false,
+        styles = {
+          comments = {}, -- 禁用注释斜体
+          keywords = {}, -- 禁用关键字斜体
+          functions = {}, -- 禁用函数斜体
+          variables = {}, -- 禁用变量斜体
+          conditionals = {},
+          loops = {},
+          booleans = {},
+          numbers = {},
+          properties = {},
+          types = {},
+          operators = {},
+        },
+        integrations = {
+          telescope = true,
+          which_key = true,
+          mason = true,
+          neotree = true,
+          aerial = true,
+          notify = true,
+          nvimtree = true,
+          cmp = true,
+          gitsigns = true,
+          illuminate = true,
+          indent_blankline = {
+            enabled = true,
+            scope_color = "surface2",
+          },
+        },
       })
-    end,
+      vim.cmd("colorscheme catppuccin")
+
+        end,
   },
 
   -- 配置 LazyVim
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "base16-gruvbox-dark-hard",
+      colorscheme = "catppuccin",
     },
   },
 }
