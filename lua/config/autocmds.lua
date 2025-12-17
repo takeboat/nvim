@@ -36,3 +36,5 @@ vim.api.nvim_create_autocmd("ColorScheme", {
     vim.api.nvim_set_hl(0, "NvimTreeStatusLineNC", { bg = "NONE" })
   end,
 })
+vim.env.BROWSER = "chrome.exe"
+vim.o.cursorline = false
