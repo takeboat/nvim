@@ -1,21 +1,14 @@
 return {
-  -- 为 blink.cmp 配置 Tab 补全 (LazyVim 默认使用 blink.cmp)
+  -- 为 blink.cmp 配置补全，VSCode 风格的 Tab 行为
   {
     "saghen/blink.cmp",
     opts = function(_, opts)
-      -- VSCode 风格：Tab 直接确认选中的建议
+      -- 保持默认的 sources，不包含 Codeium
+      -- Codeium 由我们自定义逻辑处理
+
+      -- VSCode 风格：Tab 选择并接受第一个建议（如果还没有选中任何建议）
       opts.keymap = {
-        ["<Tab>"] = {
-          function(cmp)
-            if cmp.snippet_active() then
-              return cmp.accept()
-            else
-              return cmp.select_and_accept()
-            end
-          end,
-          "snippet_forward",
-          "fallback"
-        },
+        ["<Tab>"] = { "select_and_accept", "snippet_forward", "fallback" },
         ["<S-Tab>"] = { "snippet_backward", "fallback" },
         ["<CR>"] = { "accept", "fallback" },
         ["<C-space>"] = { "show", "show_documentation", "hide_documentation" },
