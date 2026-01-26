@@ -2,3 +2,4 @@
 -- Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
 -- Add any additional keymaps here
 vim.keymap.set("n", "G", "Gzz", { desc = "Go to last line and center it" })
+vim.keymap.set("n", "<C-d>", "<C-d>zz", { desc = "Page down and center it" })
