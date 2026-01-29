@@ -7,3 +7,4 @@ vim.opt.shiftwidth = 4 -- 缩进使用 4 个空格
 vim.opt.expandtab = true -- 将 tab 转换为空格
 vim.opt.smartindent = true -- 智能缩进
 vim.opt.termguicolors = true --启用gui色彩
+vim.opt.cursorline = false
