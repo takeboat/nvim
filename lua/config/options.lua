@@ -9,3 +9,6 @@ vim.opt.smartindent = true -- 智能缩进
 vim.opt.termguicolors = true --启用gui色彩
 vim.opt.cursorline = false
 vim.opt.guicursor = "i:block"
+vim.opt.wrap = true
+vim.opt.linebreak = true
+vim.opt.breakindent = true
